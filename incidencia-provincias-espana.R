@@ -100,5 +100,5 @@ g2 <- ggplot(dat[rowscan,]) + geom_sf(aes(fill = Casosporcien)) +
 g1 / g2 + plot_layout(heights = c(5,2))
 
 #Exportamos en pdf
-ggsave("covid_again.pdf", width = 12, height = 18, device = "pdf")
+ggsave("covid_provincias.pdf", width = 12, height = 18, device = "pdf")
 #El proceso no acaba aquí, puesto que hago un retoque en Inkscape para que el color de fondo coincida con el color de cada panel.

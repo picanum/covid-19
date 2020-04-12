@@ -54,8 +54,6 @@ dat_graf2 %>%
        caption = "Curvas obtenidas con modelos GAM con k = 7 | @Picanumeros") +
   theme_bw(base_size = 16) +
   theme(text = element_text(family = "Liberation Sans"),
-        #panel.background = element_rect(fill = "#ffffcc"),
-        #panel.grid = element_line(colour = "#919191", alpha =.5),
         plot.background = element_rect(fill = "#BFD5E3")) + 
   scale_color_viridis_d(name = "País", labels = c("Italia", "España"), begin = 0.1, end = 0.6)
 ggsave("crec_bruto_0.png", dpi = 150, width = 12, height = 8)
@@ -90,8 +88,6 @@ dat_graf2 %>%
        caption = "Curvas obtenidas con modelos GAM con k = 7 | @Picanumeros") +
   theme_bw(base_size = 16) +
   theme(text = element_text(family = "Liberation Sans"),
-        #panel.background = element_rect(fill = "#ffffcc"),
-        #panel.grid = element_line(colour = "#919191", alpha =.5),
         plot.background = element_rect(fill = "#BFD5E3")) + scale_color_viridis_d(name = "País", labels = c("Italia", "España"), begin = 0.1, end = 0.6)
 ggsave("crec_neto_0.png", dpi = 150, width = 12, height = 8)
 
@@ -131,8 +127,6 @@ dat_graf2 %>%
        caption = "Curvas obtenidas con modelos GAM con k = 7 | @Picanumeros") +
   theme_bw(base_size = 16) +
   theme(text = element_text(family = "Liberation Sans"),
-        #panel.background = element_rect(fill = "#ffffcc"),
-        #panel.grid = element_line(colour = "#919191", alpha =.5),
         plot.background = element_rect(fill = "#BFD5E3")) + scale_color_viridis_d(name = "País", labels = c("Italia", "España"), begin = 0.1, end = 0.6)
 ggsave("crec_bruto_100.png", dpi = 150, width = 12, height = 8)
   
@@ -165,7 +159,5 @@ dat_graf2 %>%
        caption = "Curvas obtenidas con modelos GAM con k = 7 | @Picanumeros") +
   theme_bw(base_size = 16) +
   theme(text = element_text(family = "Liberation Sans"),
-        #panel.background = element_rect(fill = "#ffffcc"),
-        #panel.grid = element_line(colour = "#919191", alpha =.5),
         plot.background = element_rect(fill = "#BFD5E3")) + scale_color_viridis_d(name = "País", labels = c("Italia", "España"), begin = 0.1, end = 0.6)
 ggsave("crec_neto_100.png", dpi = 150, width = 12, height = 8)

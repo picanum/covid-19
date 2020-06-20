@@ -42,3 +42,30 @@ datos %>% select(Province_State, colnames(datos)[12:161]) %>%
   theme(legend.position = "none")
 
 ggsave("eeuu.png", dpi = 300)
+
+datos %>% select(Province_State, colnames(datos)[12:161]) %>%
+  group_by(Province_State) %>% summarise_all(sum) %>%
+  pivot_longer(cols = colnames(datos)[12:161],
+               names_to = "Fechas", values_to = "casos") %>%
+  mutate(Fechas = as.Date(Fechas, format = "%m/%d/%y")) %>%
+  arrange(Fechas) %>% group_by(Fechas) %>%
+  summarise(casos = sum(casos)) %>%
+  mutate(dif = c(NA, diff(casos))) %>%
+  mutate(ma_7 = c(rep(NA,6), zoo::rollmeanr(dif, 7))) %>%
+  filter(Fechas > as.Date("2020-03-01")) %>%
+  ggplot(aes(x = Fechas, y = dif)) +
+  geom_line(size = 1.5) +
+  geom_line(mapping = aes(x = Fechas, y = ma_7), col = "red",
+            size = 1.1) +
+  theme_minimal(base_size = 16) +
+  labs(x = "Fechas", y = "Número de nuevos casos confirmados diarios",
+       title = "Evolución del número de nuevos casos confirmados diarios en Estados Unidos\n(línea negra) y media móvil con ventana de 7 días (línea roja)",
+       subtitle = "Fuente: Center for Systems Science and Engineering (CSSE), Universidad Johns Hopkins",
+       caption = "@Picanumeros") +
+  scale_x_date(breaks = "7 days",
+               date_labels = "%d %b",
+               expand = c(0,0)) +
+  scale_y_continuous(breaks = seq(0, 36000, by = 2000)) + 
+  theme(legend.position = "none")
+
+ggsave("eeuu2.png", dpi = 300)

@@ -3,7 +3,8 @@ library(extrafont)
 library(zoo)
 
 datos <- readr::read_csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv")
-datos <- readr::read_csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv")
+#Por si quieres hacerlo con los datos de fallecimientos en lugar de los de casos:
+#datos <- readr::read_csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv")
 
 datos %>% mutate(pais = `Country/Region`) %>%
   select(pais, colnames(datos[5:ncol(datos)])) %>%
@@ -12,6 +13,7 @@ datos %>% mutate(pais = `Country/Region`) %>%
                names_to = "dia",
                values_to = "casos")
 
+#El dataset pob1.csv está descargado de la web del Banco Mundial. Antes se podía obtener con la librería WDI pero por algun motivo ha dejado de funcionarme.
 pob <- readr::read_csv("pob1.csv", skip = 3) %>%
   mutate(SP.POP.TOTL = `2018`) %>%
   select(`Country Name`, `Country Code`, SP.POP.TOTL) %>%

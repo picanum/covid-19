@@ -34,7 +34,7 @@ for(i in 1:26){
   
   #Introducimos primero un if que nos diga si el informe está a fecha igual o superior al 19/11/2020.
   #Esta fue la fecha en la que se introdujo el ámbito "Social", lo cual quiere decir que en esos casos tendremos que rescatar una fila más.
-  if(fechas[i] > as.Date("2020-11-12")){
+  if(fechas[i] >= as.Date("2020-11-19")){
     #En el elemento tabla almacenaremos las 8 filas que vienen después de "Ámbito de posible exposición", en las que aparece la frecuencia de cada ámbito
     tabla <- prueba[[tabla]][(which(str_detect(prueba[[tabla]][,1], "Ámbito de posible exposición"))+1):
                                (which(str_detect(prueba[[tabla]][,1], "Ámbito de posible exposición"))+8),]

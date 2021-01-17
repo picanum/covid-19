@@ -103,7 +103,7 @@ dat %>% left_join(data.frame(fecha = fechas, dif = c(NA, diff(fechas))), "fecha"
 ggsave("grafico1.png", dpi = 300, width = 14.4, height = 8)
 
 
-dat %>% #eft_join(data.frame(fecha = fechas, dif = c(NA, diff(fechas))), "fecha") %>%
+dat %>% left_join(data.frame(fecha = fechas, dif = c(NA, diff(fechas))), "fecha") %>%
   mutate(num = as.numeric(as.character(num))) %>%
   group_by(ambito) %>%  mutate(crec = c(NA, diff(num)),
                                num = ifelse(crec < 0 & fecha > as.Date("2020-08-01") & fecha < as.Date("2020-11-01"), NA, num),
@@ -201,7 +201,6 @@ ggsave("grafico4.png", dpi = 300, width = 14.4, height = 8)
 
 dat %>% left_join(data.frame(fecha = fechas, dif = c(NA, diff(fechas))), "fecha") %>%
   mutate(num = as.numeric(as.character(num))) %>%
-  #filter(ambito != "Social^") %>%
   group_by(ambito) %>%  mutate(crec = c(NA, diff(num)),
                                num = ifelse(crec < 0 & fecha > as.Date("2020-08-01") & fecha < as.Date("2020-11-01"), NA, num),
                                crec = ifelse(crec < 0 & fecha > as.Date("2020-08-01") & fecha < as.Date("2020-11-01"), NA, crec)) %>%

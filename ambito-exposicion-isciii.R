@@ -5,7 +5,7 @@ library(tabulizer)  #Extraer tablas de los PDFs
 #El procedimiento antes de correr el código ha sido guardar todos los PDFs de los informes disponibles desde el 15 de julio de la web:
 #https://www.isciii.es/QueHacemos/Servicios/VigilanciaSaludPublicaRENAVE/EnfermedadesTransmisibles/Paginas/InformesCOVID-19.aspx
 #Se puede hacer manualmente o bien copiando los enlaces en un vector y recorrerlo con download.file(). En ambos casos el trabajo hay que dárselo.
-#Los PDFs los he guardado con el nombre "informe1.pdf", "informe2.pdf",... así hasta 26.
+#Los PDFs los he guardado con el nombre "informe1.pdf", "informe2.pdf",... así hasta los que haya.
 
 #Las fechas correspondientes a cada informe (tal y como se señalan en el título de cada uno) las guardo en este vector.
 #Como se puede ver la periodicidad va cambiando un poco así que hay que utilizar varios seq().
